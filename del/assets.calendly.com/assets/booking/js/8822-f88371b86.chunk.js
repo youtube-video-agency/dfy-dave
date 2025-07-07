@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbooking=globalThis.webpackChunkbooking||[]).push([[8822],{98822:e=>{e.exports=JSON.parse('{"en":{"safe_suspense":{"error_modal":{"title":"Oops, something went wrong.","body":"Reload page","action":"Server error. Please check your connection."}}}}')}}]);

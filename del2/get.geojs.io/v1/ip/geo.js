@@ -1,0 +1,1 @@
+geoip({"latitude":"33.7233","longitude":"73.0435","ip":"2407:d000:b:1496:5a05:c7eb:e910:217e","timezone":"Asia\/Karachi","city":"Islamabad","organization":"AS23674 Nayatel Pvt Ltd","asn":23674,"country":"Pakistan","area_code":"0","organization_name":"Nayatel Pvt Ltd","country_code":"PK","country_code3":"PAK","continent_code":"AS","accuracy":10,"region":"Islamabad"})

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbooking=globalThis.webpackChunkbooking||[]).push([[9014],{99014:o=>{o.exports=JSON.parse('{"en":{"routing_form_landing":{"company_logo":"Company logo","form":"Form","placeholders":{"select":"Select…"}}}}')}}]);

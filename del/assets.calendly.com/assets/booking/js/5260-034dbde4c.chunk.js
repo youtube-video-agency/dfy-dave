@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbooking=globalThis.webpackChunkbooking||[]).push([[5260],{85260:o=>{o.exports=JSON.parse('{"en":{"clipboard":{"copied_to_clipboard":"Copied to clipboard"}}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbooking=globalThis.webpackChunkbooking||[]).push([[3107],{53107:a=>{a.exports=JSON.parse('{"en":{"error_boundary":{"default_no_action":"Oops, something went wrong.","reload_page":"Reload page","contact_us_html":"If the problem persists, contact us at <a href=\'mailto:%{email}\'>%{email}</a>"}}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkbooking=globalThis.webpackChunkbooking||[]).push([[2398],{12398:o=>{o.exports=JSON.parse('{"en":{"onetrust":{"cookie_settings":"Cookie settings"}}}')}}]);
