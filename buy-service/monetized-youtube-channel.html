@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>
+        Get DFY Dave Services </title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/functions.js"></script>
+    <script src="js/ccvalidations.js"></script>
+    <script src="js/cleave.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="text/JavaScript">
+
+var couponCodeInput;
+let buttonCount = 0;
+
+function applyButtonCheck() {
+    let couponCodeInputValue = couponCodeInput.value;
+    const hiddenButton = document.querySelector("#check_coupon_btn");
+    let applyButton = hiddenButton.cloneNode(true);
+    let couponWrap = document.querySelector('.coupon-input-wrap');
+    if (couponCodeInputValue != "" && buttonCount === 0) {
+        couponWrap.appendChild(applyButton);
+        buttonCount = 1;
+    } else if (couponCodeInputValue == "" && buttonCount === 1) {
+        couponWrap.removeChild(document.querySelector('#check_coupon_btn'));
+        buttonCount = 0;
+    }
+}
+
+document.addEventListener('DOMContentLoaded',function () {
+    couponCodeInput = document.getElementById('coupon_code');
+    if (couponCodeInput){
+        couponCodeInput.addEventListener('input', function () {
+            applyButtonCheck();
+        });
+    }
+});
+
+function enableButton(){
+    document.querySelector('button[type="submit"]').disabled = false;
+
+    document.querySelector('button[type="submit"]').classList.remove("disabled");
+    document.querySelector('span.payment-loader').style.display = 'none';
+    document.querySelector('span.button-text').textContent = "Pay";
+}
+function disableButton(){
+    document.querySelector('button[type="submit"]').blur();
+    document.querySelector('button[type="submit"]').disabled = true;
+
+    document.querySelector('button[type="submit"]').classList.add("disabled");
+    document.querySelector('span.payment-loader').style.display = 'block';
+    document.querySelector('span.button-text').textContent = "Processing...";
+}    
+
+function findErrorText(element) {
+    const errorWrap = element.closest('div[data-error-wrap=""]');
+
+    if (errorWrap) {
+        const errorText = errorWrap.querySelector('p.error-text');
+        return errorText;
+    } else {
+        return null;
+    }
+}
+
+const defaultErrorMessage = "This field is required";
+
+function findAndHideErrorText(input, errorMessage = defaultErrorMessage){
+    let errorInput = document.getElementById(input);
+    let errorTextElement = findErrorText(errorInput);
+
+    if (errorTextElement) {
+        errorTextElement.style.display = 'none';
+        errorTextElement.textContent = errorMessage;
+    }
+}
+
+
+function showErrorMessage(input, errorMessage = defaultErrorMessage) {
+    document.getElementById(input).closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+    document.getElementById(input).closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = errorMessage;
+}
+
+function checkForm() {
+
+    disableButton();
+	var err=0;
+    const zipField = document.getElementById('zip');
+    const zip = zipField.value;
+    const countryField = document.getElementById('country');
+    const country = countryField.value;
+    const usZipCodeRegExp = /^\d{5}(-\d{4})?$/;
+    const caPostalCodeRegExp = /^([a-zA-Z]\d[a-zA-Z])\s?(\d[a-zA-Z]\d)$/;
+
+    for (var i=0; i < document.ff1.cctype.length; i++){
+       if (document.ff1.cctype[i].checked){
+          var cctype = document.ff1.cctype[i].value;
+        }
+    }
+
+
+    
+        if (document.getElementById('fname').value==0) {
+        if (err===0) {
+            document.getElementById('fname').focus();
+        }
+        document.getElementById('fname').classList.add("invalid-input");
+
+        document.getElementById('fname').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+        if (document.getElementById('lname').value==0) {
+        if (err===0) {
+            document.getElementById('lname').focus();
+        }
+        document.getElementById('lname').classList.add("invalid-input");
+
+        document.getElementById('lname').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+        if (document.getElementById('address').value==0) {
+        if (err===0) {
+            document.getElementById('address').focus();
+        }
+        document.getElementById('address').classList.add("invalid-input");
+
+        document.getElementById('address').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+        if (document.getElementById('city').value==0) {
+        if (err===0) {
+            document.getElementById('city').focus();
+        }
+        document.getElementById('city').classList.add("invalid-input");
+
+        document.getElementById('city').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+        if (document.getElementById('state').value==0) {
+        if (err===0) {
+            document.getElementById('state').focus();
+        }
+        document.getElementById('state').classList.add("invalid-input");
+
+        document.getElementById('state').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+        if (document.getElementById('zip').value==0) {
+        if (err===0) {
+            document.getElementById('zip').focus();
+        }
+        document.getElementById('zip').classList.add("invalid-input");
+
+        document.getElementById('zip').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+        if (document.getElementById('email').value==0) {
+        if (err===0) {
+            document.getElementById('email').focus();
+        }
+        document.getElementById('email').classList.add("invalid-input");
+
+        document.getElementById('email').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+        enableButton();
+        err=1;
+    }
+    
+    if(cctype!=="PP"){
+                        if (document.getElementById('ccn').value==0) {
+                    if (err==0) {
+                        document.getElementById('ccn').focus();
+                    }
+                    document.getElementById('ccn').classList.add("invalid-input");
+
+                    document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                    enableButton();
+                    err=1;
+                }
+                        if (document.getElementById('ccname').value==0) {
+                    if (err==0) {
+                        document.getElementById('ccname').focus();
+                    }
+                    document.getElementById('ccname').classList.add("invalid-input");
+
+                    document.getElementById('ccname').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                    enableButton();
+                    err=1;
+                }
+                        if (document.getElementById('exp').value==0) {
+                    if (err==0) {
+                        document.getElementById('exp').focus();
+                    }
+                    document.getElementById('exp').classList.add("invalid-input");
+
+                    document.getElementById('exp').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                    enableButton();
+                    err=1;
+                }
+                        if (document.getElementById('cvv').value==0) {
+                    if (err==0) {
+                        document.getElementById('cvv').focus();
+                    }
+                    document.getElementById('cvv').classList.add("invalid-input");
+
+                    document.getElementById('cvv').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                    enableButton();
+                    err=1;
+                }
+                if(err===0){
+
+            //check credit card.
+            var ccn = document.getElementById("ccn").value;
+            if(!isValidCardNumber(ccn)){
+                // alert("Invalid credit card number. Please check your input and try again");
+                document.getElementById('ccn').classList.add("invalid-input");
+                document.getElementById('ccn').focus();
+                document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = "Invalid credit card number. Please check your input and try again";
+                enableButton();
+                return false;
+            }
+            if(isExpiryDate(document.getElementById("exp").value)==false){
+                // alert("Credit Card expiry date is in the past! Please adjust your input.");
+                document.getElementById('exp').classList.add("invalid-input");
+                document.getElementById('exp').focus();
+                document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = "Credit Card expiry date is in the past! Please adjust your input.";
+                enableButton();
+                return false;
+            }
+
+            if(!isCardTypeCorrect(ccn,cctype)){
+                // alert("Invalid credit card number/type combination. Please check your input and try again");
+                document.getElementById('ccn').classList.add("invalid-input");
+                document.getElementById('ccn').focus();
+                document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+                document.getElementById('ccn').closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = "Invalid credit card number/type combination. Please check your input and try again";
+                enableButton();
+                return false;
+            }
+        }
+    }
+
+
+    /* check email for validity */
+	var reg1 = /(@.*@)|(\.\.)|(@\.)|(\.@)|(^\.)/; // not valid
+	var reg2 = /^.+\@(\[?)[a-zA-Z0-9\-\.]+\.([a-zA-Z]{2,5}|[0-9]{1,3})(\]?)$/; // valid
+	if (document.getElementById('email').value===0 || !reg2.test(document.getElementById('email').value)) {
+	if (err===0) {
+		document.getElementById('email').focus();
+	}
+	document.getElementById('email').classList.add("invalid-input");
+    document.getElementById('email').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+    document.getElementById('email').closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = "Invalid email address entered. Please check and try again.";
+    enableButton();
+	err=1;
+	}
+
+    /* check US/CA zip/postal code for validity */
+    if (country === 'US') {
+        if (!usZipCodeRegExp.test(zip)) {
+            // alert('Invalid United States ZIP code.');
+            document.getElementById('zip').classList.add("invalid-input");
+            document.getElementById('zip').focus();
+            document.getElementById('zip').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+            document.getElementById('zip').closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = "Invalid United States ZIP code.";
+            enableButton();
+            return false;
+        }
+    } else if (country === 'CA') {
+        if (!caPostalCodeRegExp.test(zip)) {
+            // alert('Invalid Canadian postal code.');
+            document.getElementById('zip').classList.add("invalid-input");
+            document.getElementById('zip').focus();
+            document.getElementById('zip').closest('div[data-error-wrap=""]').querySelector('p.error-text').style.display = "block";
+            document.getElementById('zip').closest('div[data-error-wrap=""]').querySelector('p.error-text').textContent = "Invalid Canadian ZIP code.";
+            enableButton();
+            return false;
+        }
+    }
+
+    if (err===0) {
+        // $("#accordion").addClass('loading');
+        return true;
+    } else {
+        // alert("Please complete all highlighted fields to continue.");
+        enableButton();
+        return false;
+    }
+}
+
+var select;
+function checkService(el){
+    select = $(el).find('option:selected')
+    if(select.val() !=''){
+        $(".sub-total").html(select.data('amount'));
+        $("#new_amount").html(select.data('amount'));
+    }
+}
+
+var couponResponse = "";
+var optionResponse = "";
+
+function updateTotal() {
+    
+    let subtotal = optionResponse.new_amount;
+
+    let discount = couponResponse.discount;
+
+    let totalPrice = subtotal - discount;
+
+    $("#new_amount").html(totalPrice.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+}
+
+function checkOptions() {
+    const csrfToken = document.querySelector('input[name="csrf_token"]').value;
+    // const optionInputs = document.querySelectorAll('input[name="selected_options"]');
+    const optionInputs = document.querySelectorAll('input.options-checkbox');
+    // console.log(optionInputs);
+
+    let selectedOptionsArray = [];
+    let i = 0;
+    optionInputs.forEach(input => {
+        selectedOptionsArray[i] = input.checked;
+        i++;
+    });
+    // console.log(selectedOptionsArray);
+
+    let amount = 0;
+
+    $.ajax({
+        type: 'POST',
+        url: 'validate_options.php',
+        data: {
+            selected_options: selectedOptionsArray,
+            service: document.getElementById('service') ? document.getElementById('service').value : '',
+            amount: amount,
+            csrf_token: csrfToken
+        },
+        dataType: 'json',
+        success: function(response) {
+            let message = '';
+            if (response.valid) {
+
+                optionResponse = response;
+
+                $(".options-total").html(response.options.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+                $("#sub-total").html(response.new_amount.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+
+                $("#options-sub-total").css('display', 'flex');
+
+                if (couponResponse!=""){
+                    updateTotal();
+                } else {
+                    let formatedPrice = response.new_amount;
+                    $("#new_amount").html(formatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+                }                    
+
+                // const newAmount = amount - response.discount;
+                // $("#discount-value").html(response.discount_value);
+                // // $("#discount-amount").html(response.discount.toFixed(2));
+                // $("#discount-amount").html(response.discount.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+                // // $("#new_amount").html(response.new_amount.toFixed(2));
+
+                // let formatedPrice = response.new_amount;
+                // // $("#new_amount").html(formatedPrice.toLocaleString(undefined, { minimumFractionDigits: 2 }));
+                // $("#new_amount").html(formatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+
+                // $("#discount-badge").show();
+                // message = '<div class="message success"><strong>Discount Applied!</strong></div>';
+                // $('#couponSMessage').html(message).fadeTo("fast", 1);
+
+                // $('.coupon-message-wrap').css('display', 'flex');
+                // $('.discount-amount').css('display', 'flex');
+                // console.log(response);
+
+            } else {
+                optionResponse = "";
+                // $("#remove_coupon").trigger('click')
+                // message = '<div class="message error coupon"><strong>Invalid Coupon Code</strong></div>';
+                // $('#couponMessage').html(message).fadeTo("fast", 1);
+
+                // $('.coupon-message-wrap').css('display', 'flex');
+                // $('.discount-amount').css('display', 'none');
+                // $('#couponSMessage').css('display', 'none');
+                // $("#new_amount").html(select.data('amount'));
+                // couponField.value = '';
+
+                // console.log(response.valid);
+                // applyButtonCheck();
+
+            }
+            // $("#check_coupon_btn").html('Apply');
+        },
+        error: function() {
+            optionResponse = "";
+            // $('#couponMessage').html('<div class="message error coupon"><strong>An error occurred while checking the coupon</strong></div>').fadeTo("fast", 1);
+            // $("#check_coupon_btn").html('Apply');
+
+            // $('.coupon-message-wrap').css('display', 'flex');
+            // $('.discount-amount').css('display', 'none');
+            // $('#couponSMessage').css('display', 'none');
+            // $("#new_amount").html(select.data('amount'));
+            // couponField.value = '';
+
+            // console.log("error");
+            // applyButtonCheck();
+        }
+    });
+}
+
+function checkCoupon(validate) {
+    const couponField = document.getElementById('coupon_code');
+    const couponCode = couponField.value;
+
+    let amount = 0;
+
+    if (document.getElementById('amount')) {
+        // Use the direct amount field if present
+        amount = parseFloat(document.getElementById('amount').value);
+    } else if (document.getElementById('service')) {
+        // Extract amount from the selected service option's data attribute
+        const serviceElement = document.getElementById('service');
+        const selectedOption = serviceElement.options[serviceElement.selectedIndex];
+        amount = parseFloat(selectedOption.getAttribute('data-amount')) || 0;
+    }
+
+    if (couponCode) {
+    const csrfToken = document.querySelector('input[name="csrf_token"]').value;
+    $('#couponMessage').hide();
+    $('#couponSMessage').hide();
+    $("#check_coupon_btn").html('Processing...');
+    $.ajax({
+        type: 'POST',
+        url: 'validate_coupon.php',
+        data: {
+            coupon_code: couponCode,
+            service: document.getElementById('service') ? document.getElementById('service').value : '',
+            amount: amount,
+            csrf_token: csrfToken
+        },
+        dataType: 'json',
+        success: function(response) {
+            let message = '';
+            if (response.valid) {
+
+                couponResponse = response;
+
+                const newAmount = amount - response.discount;
+                $("#discount-amount").html(response.discount.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+
+                // let options = $("input.options-checkbox");
+                // let hasSelectedOptions = false;
+                // for (let i = 0; i < options.length; i++) {
+                //     if (options[i].checked){
+                //         hasSelectedOptions = true;
+                //         break;
+                //     }
+                // }
+                // if (hasSelectedOptions) {
+                if (optionResponse!="") {
+                    updateTotal();
+                } else {
+                    let formatedPrice = response.new_amount;
+                    $("#new_amount").html(formatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+                }
+
+                // let formatedPrice = response.new_amount;
+                // $("#new_amount").html(formatedPrice.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+
+                $("#discount-badge").show();
+                message = '<div class="message success"><strong>Discount Applied!</strong></div>';
+                $('#couponSMessage').html(message).fadeTo("fast", 1);
+
+                $('.coupon-message-wrap').css('display', 'flex');
+                $('.discount-amount').css('display', 'flex');
+
+            } else {
+                couponResponse = response;
+
+                $("#remove_coupon").trigger('click')
+                message = '<div class="message error coupon"><strong>Invalid Coupon Code</strong></div>';
+                $('#couponMessage').html(message).fadeTo("fast", 1);
+
+                $('.coupon-message-wrap').css('display', 'flex');
+                $('.discount-amount').css('display', 'none');
+                $('#couponSMessage').css('display', 'none');
+
+                if (optionResponse!="") {
+                    $("#new_amount").html(optionResponse.new_amount.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+                } else {
+                    $("#new_amount").html(select.data('amount'));
+                }
+
+                couponField.value = '';
+
+                applyButtonCheck();
+
+            }
+            $("#check_coupon_btn").html('Apply');
+        },
+        error: function() {
+            couponResponse = response;
+
+            $('#couponMessage').html('<div class="message error coupon"><strong>An error occurred while checking the coupon</strong></div>').fadeTo("fast", 1);
+            $("#check_coupon_btn").html('Apply');
+
+            $('.coupon-message-wrap').css('display', 'flex');
+            $('.discount-amount').css('display', 'none');
+            $('#couponSMessage').css('display', 'none');
+
+            if (optionResponse!="") {
+                $("#new_amount").html(optionResponse.new_amount.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+            } else {
+                $("#new_amount").html(select.data('amount'));
+            }
+
+            couponField.value = '';
+
+            applyButtonCheck();
+        }
+    });
+    } else {
+        if (!validate) {
+            couponResponse = response;
+
+            $('#couponMessage').html('<div class="message error coupon"><strong>Please enter a coupon code</strong></div>').fadeTo("fast", 1);
+
+            $('.coupon-message-wrap').css('display', 'flex');
+            $('.discount-amount').css('display', 'none');
+            $('#couponSMessage').css('display', 'none');
+
+            if (optionResponse!="") {
+                $("#new_amount").html(optionResponse.new_amount.toLocaleString('en-US', { minimumFractionDigits: 2 }));
+            } else {
+                $("#new_amount").html(select.data('amount'));
+            }
+
+            couponField.value = '';
+            
+            applyButtonCheck();
+        }
+
+    }
+}
+
+function checkFieldBack(fieldObj) {
+	if (fieldObj.value!=='') {
+        fieldObj.classList.remove("invalid-input");
+        findAndHideErrorText(fieldObj.id);
+	}
+}
+
+function noAlpha(obj) {
+	reg = /[^0-9.,]/g;
+	obj.value =  obj.value.replace(reg,"");
+}
+
+function checkCaptcha(e) {
+    jQuery('button[type="submit"]').removeAttr("disabled");
+    jQuery("#ff1").attr("onsubmit","").on("submit",function(){return checkForm();});
+}
+
+</script>
+    <link rel="icon" type="image/x-icon" href="images/DFY%20Dave%20Checkout%20Favicon.png">
+    <script
+        defer="">document.addEventListener("DOMContentLoaded", function (e) { let n = document.querySelector("link[rel*='icon']") || document.createElement("link"); n.type = "image/x-icon", n.rel = "shortcut icon", !function e(n, t, o) { var a = 0; function i() { a = setTimeout(s, 1e4), document.addEventListener("mousemove", d), document.addEventListener("keypress", d) } function s() { a = 0, t() } function d() { a ? clearTimeout(a) : o(), document.removeEventListener("mousemove", d), document.removeEventListener("keypress", d), setTimeout(i, 1e3) } i() }(1e4, function () { n.href = "css/images/DFY Dave Checkout Favicon Notification.png", document.getElementsByTagName("head")[0].appendChild(n) }, function () { n.href = "css/images/DFY Dave Checkout Favicon.png", document.getElementsByTagName("head")[0].appendChild(n) }) });</script>
+
+
+    <script
+        type="text/javascript">(function (c, l, a, r, i, t, y) { c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) }; t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i; y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); })(window, document, "clarity", "script", "odvpe4pke1");</script>
+
+</head>
+
+<body>
+    <section class="main">
+        <form id="ff1" name="ff1" method="post" action="" enctype="multipart/form-data" onsubmit="return checkForm();"
+            class="pppt_form">
+            <input type="hidden" name="process" value="yes">
+            <input type="hidden" name="csrf" value="837876d422de70e9a1f3bb8bf0f07ce8">
+            <div class="container">
+
+                <div class="left-column">
+                    <div class="margins-holder">
+                        <div class="margins">
+                            <div class="column-inner">
+                                <div class="company-wrap">
+                                    <div class="company-icon-wrap"><img src="images/icon_company.svg" loading="lazy"
+                                            alt="" class="company-icon"></div>
+                                    <p class="company-text">DFY Dave
+                                    </p>
+                                    <img src="images/icon_verified.svg" loading="lazy" alt="" class="verified-icon">
+                                </div>
+                                <div class="order-summary">
+                                    <h2 id="main_heading">Monetized YouTube Channel</h2>
+                                    <div class="product-details">
+
+                                        <div class="subtotal">$<span class="sub-total">695.00</span></div>
+                                        <div class="product-name">
+
+                                            <select name="service" id="service" class="long-field"
+                                                onchange="checkService(this);checkFieldBack(this);">
+                                                <option value="">Please Select</option>
+                                                <option data-amount="695.00" value="0" selected="">Monetized YouTube Channel
+                                                </option>
+                                                <option data-amount="995.00" value="1">Amazon Affiliate Website</option>
+                                                <option data-amount="1,995.00" value="2">Advanced Amazon Affiliate
+                                                    Website</option>
+                                                <option data-amount="199.00" value="3" selected="">Channel Review by
+                                                    Erik Walden</option>
+                                                <option data-amount="499.00" value="4">Channel Review by Dave Nick
+                                                </option>
+                                                <option data-amount="1,295.00" value="5">DFY 10 Long Form YouTube Videos
+                                                </option>
+                                                <option data-amount="1,795.00" value="6">DFY 20 Long Form YouTube Videos
+                                                </option>
+                                                <option data-amount="2,295.00" value="7">DFY 30 Long Form YouTube Videos
+                                                </option>
+                                                <option data-amount="995.00" value="8">Monetized TikTok Account</option>
+                                                <option data-amount="1,295.00" value="9">Monetized TikTok Account PLUS+
+                                                </option>
+                                                <option data-amount="1,990.00" value="10">Monetized Channel + 10 DFY
+                                                    Videos</option>
+                                                <option data-amount="2,490.00" value="11">Monetized Channel + 20 DFY
+                                                    Videos</option>
+                                                <option data-amount="2,990.00" value="12">Monetized Channel + 30 DFY
+                                                    Videos</option>
+                                                <option data-amount="3,995.00" value="13">Monetized YouTube Channel
+                                                    PLUS+</option>
+                                                <option data-amount="395.00" value="14">Monetized YouTube Channel
+                                                    (Replacement)</option>
+                                                <option data-amount="455.00" value="15">Monetized YouTube Channel
+                                                    (Returning Customer Special Offer!)</option>
+                                                <option data-amount="995.00" value="16">Monetized YouTube Channel Bundle
+                                                    (2 Pre-Monetized Channels)</option>
+                                                <option data-amount="695.00" value="17">Monetized YouTube Channel
+                                                </option>
+                                                <option data-amount="1,295.00" value="18">DFY 10 Long Form YouTube
+                                                    Videos</option>
+                                                <option data-amount="1,795.00" value="19">DFY 20 Long Form YouTube
+                                                    Videos</option>
+                                                <option data-amount="2,295.00" value="20">DFY 30 Long Form YouTube
+                                                    Videos</option>
+                                                <option data-amount="995.00" value="21">Monetized TikTok Account
+                                                </option>
+                                                <option data-amount="1,295.00" value="22">Monetized TikTok Account PLUS+
+                                                </option>
+                                                <option data-amount="1,990.00" value="23">Monetized Channel + 10 DFY
+                                                    Videos</option>
+                                                <option data-amount="2,490.00" value="24">Monetized Channel + 20 DFY
+                                                    Videos</option>
+                                                <option data-amount="2,990.00" value="25">Monetized Channel + 30 DFY
+                                                    Videos</option>
+                                                <option data-amount="3,995.00" value="26">Monetized YouTube Channel
+                                                    PLUS+</option>
+                                                <option data-amount="995.00" value="27">Monetized YouTube Channel Bundle
+                                                    (2 Pre-Monetized Channels)</option>
+                                                <option data-amount="1,997.50" value="28">Monetized YouTube Channel
+                                                    PLUS+ (Payment 1/2)</option>
+                                                <option data-amount="1,997.50" value="29">Monetized YouTube Channel
+                                                    PLUS+ (Payment 2/2)</option>
+                                                <option data-amount="500.00" value="30">Monetized YouTube Channel PLUS+
+                                                    (Non-Refundable Deposit Payment)</option>
+                                                <option data-amount="3,495.00" value="31">Monetized YouTube Channel
+                                                    PLUS+ (Remaining Payment - Post Deposit)</option>
+                                                <option data-amount="545.00" value="32">Monetized YouTube Channel
+                                                </option>
+                                                <option data-amount="499.00" value="33">HRPV Channel Review by Dave Nick
+                                                </option>
+                                                <option data-amount="4,995.00" value="34">YouTube Coaching with Dave
+                                                    Nick</option>
+                                                <option data-amount="2,497.50" value="35">YouTube Coaching with Dave
+                                                    Nick (Payment 1/2)</option>
+                                                <option data-amount="2,497.50" value="36">YouTube Coaching with Dave
+                                                    Nick (Payment 2/2)</option>
+                                                <option data-amount="1,800.00" value="37">YouTube Coaching with Dave
+                                                    Nick (Payment 1/3)</option>
+                                                <option data-amount="1,800.00" value="38">YouTube Coaching with Dave
+                                                    Nick (Payment 2/3)</option>
+                                                <option data-amount="1,800.00" value="39">YouTube Coaching with Dave
+                                                    Nick (Payment 3/3)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p class="service-list-heading">Start earning YouTube Ad Revenue right away!</p>
+                                        <ul class="service-list">
+                                            <li class="service-list-item">1x Pre-Monetized YouTube Channel</li>
+                                            <li class="service-list-item">In-Depth Niche Analysis with You</li>
+                                            <li class="service-list-item">Automation Systems 1.0 & 3.0 by Dave Nick ($1,295 Value)</li>
+                                            <li class="service-list-item">Extremely Fast Channel Delivery</li>
+                                            <li class="service-list-item">24-7 Unlimited Worldwide Premium Customer Support</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="divider-line"></div>
+
+<!-- 
+                                    <div class="sub-total-due">
+                                        <span>Subtotal</span>
+                                        <span>$<span id="sub-total" class="sub-total">0.00</span></span>
+                                    </div> -->
+
+                                    <!-- <div class="coupon-input-wrap">
+                                        <input name="coupon_code" id="coupon_code" type="text" class="coupon-input"
+                                            tabindex="1" value=""
+                                            onkeydown="if(event.keyCode==13){checkCoupon();return false;};"
+                                            onkeyup="checkFieldBack(this);"
+                                            oninput="this.value = this.value.toUpperCase();" placeholder="Coupon Code">
+
+                                    </div>
+                                    <div class="coupon-input-hidden-wrap">
+                                        <button type="button" id="check_coupon_btn" class="coupon-apply-button"
+                                            tabindex="2" onclick="checkCoupon();">Apply</button>
+                                    </div>
+
+                                    <div id="coupon-message-wrap" class="coupon-message-wrap">
+                                        <div id="couponMessage" style="margin-right: auto;"></div>
+                                        <div id="couponSMessage" style="margin-right: auto;"></div>
+
+                                        <div class="discount-amount" style="margin-left: auto;">
+                                            -$<span id="discount-amount">0.00</span>
+                                        </div>
+                                    </div> -->
+
+
+
+                                    <div class="total-due">
+                                        <span>Total due</span>
+                                        <span>$<span id="new_amount">695.00</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mobile-text-wrap">
+                                <div class="small-text-wrap">
+                                    <!-- <p class="small-text-p">
+        <span>Powered by <a tabindex="18" href="https://soldi.ai" target="_blank">Soldi</a></span> 
+        <span class="small-text-divider">�|�</span>
+        <a tabindex="19" href="https://dfy-dave.com/privacy-policy" target="_blank">Privacy</a>
+        <span class="small-text-divider">•</span>
+        <a tabindex="20" href="https://dfy-dave.com/refund-policy" target="_blank">Refund</a>
+        <span class="small-text-divider">•</span>
+        <a tabindex="21" href="https://dfy-dave.com/terms-and-conditions" target="_blank">Terms�&�Conditions</a>
+    </p> -->
+                                </div>
+                            </div>
+                            <div class="background-shine"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-column">
+                    <!-- <div class="column-inner">
+	                                 <input type="hidden" name="csrf_token" value="425b499d397c6bdd862599f4cc1e9f342753618cb3a45f484b52e312c1166575">
+
+	               
+                  <div class="input-group" data-error-wrap="">
+                     <h4>Email address</h4>  
+                     <div class="form-control">
+                        <input type="email" name="email" id="email" maxlength="255" placeholder="email@example.com" class="first-field" value="
+                                                         " onkeyup="checkFieldBack(this);" tabindex="3">
+                     </div>
+                     <p id="email-error-text" class="error-text">This field is required.</p>
+                  </div>
+
+                  <div id="credit-card-block">
+                     <div class="input-group card-info" data-error-wrap="">
+                        <h4>Card information</h4>
+                        <div class="card_number_cont">
+                           <span class="cc-icon icon-credit-card-alt"></span>
+                           <input type="text" inputmode="numeric" name="ccn" id="ccn" class="card-number" placeholder="1234 1234 1234 1234" onkeyup="checkFieldBack(this);" tabindex="4">
+                           <span class="ccresult"></span>
+                        </div>
+                        <div class="card-details">
+                              <input type="text" inputmode="numeric" class="cardExp" name="exp" id="exp" placeholder="MM / YY" onkeyup="checkFieldBack(this);" tabindex="5">
+                           <div class="cvv-cont">
+                              <input type="text" inputmode="numeric" name="cvv" id="cvv" placeholder="CVC" onkeyup="checkFieldBack(this);" maxlength="4" tabindex="6">
+                              <span class="cc-icon icon-cvc-location"></span>
+                           </div>
+                        
+                        </div>
+                        <p id="card-error-text" class="error-text">This field is required.</p>
+                     </div>
+                     <div class="input-group" data-error-wrap="">
+                        <h4>Name on card</h4>
+                        <input type="text" name="ccname" id="ccname" placeholder="Steve Stevenson" onkeyup="checkFieldBack(this);" tabindex="7">
+                        <p id="ccn-error-text" class="error-text">This field is required.</p>
+                     </div>
+                     <div class="input-group">
+                        <h4>Tax ID Number <span style="font-weight: 400;">(optional)<span></span></span></h4>
+                        <input type="text" name="tax_id" id="tax_id" value="" onkeyup="checkFieldBack(this);" tabindex="8">
+                     </div>
+                  </div>
+
+                  <div class="input-group fields-group" data-error-wrap="">
+                     <h4>Contact information</h4>
+                     
+                     <div class="form-control">
+                        <input name="fname" id="fname" type="text" placeholder="First name" tabindex="9" maxlength="50" value="" class="first-field" onkeyup="checkFieldBack(this);">
+                     </div>
+
+                     <div class="form-control">
+                        <input name="lname" id="lname" type="text" placeholder="Last name" tabindex="10" maxlength="50" value="" onkeyup="checkFieldBack(this);">
+                     </div>
+
+                     <div class="form-control" id="country-wrap">
+                     <select name="country" id="country" onchange="checkFieldBack(this);" tabindex="11">
+                           <option value="AF">Afghanistan</option>
+                           <option value="AX">Åland Islands</option>
+                           <option value="AL">Albania</option>
+                           <option value="DZ">Algeria</option>
+                           <option value="AD">Andorra</option>
+                           <option value="AO">Angola</option>
+                           <option value="AI">Anguilla</option>
+                           <option value="AG">Antigua & Barbuda</option>
+                           <option value="AR">Argentina</option>
+                           <option value="AM">Armenia</option>
+                           <option value="AW">Aruba</option>
+                           <option value="AC">Ascension Island</option>
+                           <option value="AU">Australia</option>
+                           <option value="AT">Austria</option>
+                           <option value="AZ">Azerbaijan</option>
+                           <option value="BS">Bahamas</option>
+                           <option value="BH">Bahrain</option>
+                           <option value="BD">Bangladesh</option>
+                           <option value="BB">Barbados</option>
+                           <option value="BY">Belarus</option>
+                           <option value="BE">Belgium</option>
+                           <option value="BZ">Belize</option>
+                           <option value="BJ">Benin</option>
+                           <option value="BM">Bermuda</option>
+                           <option value="BT">Bhutan</option>
+                           <option value="BO">Bolivia</option>
+                           <option value="BA">Bosnia & Herzegovina</option>
+                           <option value="BW">Botswana</option>
+                           <option value="BV">Bouvet Island</option>
+                           <option value="BR">Brazil</option>
+                           <option value="IO">British Indian Ocean Territory</option>
+                           <option value="VG">British Virgin Islands</option>
+                           <option value="BN">Brunei</option>
+                           <option value="BG">Bulgaria</option>
+                           <option value="BF">Burkina Faso</option>
+                           <option value="BI">Burundi</option>
+                           <option value="KH">Cambodia</option>
+                           <option value="CM">Cameroon</option>
+                           <option value="CA">Canada</option>
+                           <option value="CV">Cape Verde</option>
+                           <option value="BQ">Caribbean Netherlands</option>
+                           <option value="KY">Cayman Islands</option>
+                           <option value="CF">Central African Republic</option>
+                           <option value="TD">Chad</option>
+                           <option value="CL">Chile</option>
+                           <option value="CN">China</option>
+                           <option value="CX">Christmas Island</option>
+                           <option value="CC">Cocos (Keeling) Islands</option>
+                           <option value="CO">Colombia</option>
+                           <option value="KM">Comoros</option>
+                           <option value="CG">Congo - Brazzaville</option>
+                           <option value="CD">Congo - Kinshasa</option>
+                           <option value="CK">Cook Islands</option>
+                           <option value="CR">Costa Rica</option>
+                           <option value="CI">Côte d’Ivoire</option>
+                           <option value="HR">Croatia</option>
+                           <option value="CU">Cuba</option>
+                           <option value="CW">Curaçao</option>
+                           <option value="CY">Cyprus</option>
+                           <option value="CZ">Czechia</option>
+                           <option value="DK">Denmark</option>
+                           <option value="DJ">Djibouti</option>
+                           <option value="DM">Dominica</option>
+                           <option value="DO">Dominican Republic</option>
+                           <option value="EC">Ecuador</option>
+                           <option value="EG">Egypt</option>
+                           <option value="SV">El Salvador</option>
+                           <option value="GQ">Equatorial Guinea</option>
+                           <option value="ER">Eritrea</option>
+                           <option value="EE">Estonia</option>
+                           <option value="SZ">Eswatini</option>
+                           <option value="ET">Ethiopia</option>
+                           <option value="FK">Falkland Islands</option>
+                           <option value="FO">Faroe Islands</option>
+                           <option value="FJ">Fiji</option>
+                           <option value="FI">Finland</option>
+                           <option value="FR">France</option>
+                           <option value="GF">French Guiana</option>
+                           <option value="PF">French Polynesia</option>
+                           <option value="TF">French Southern Territories</option>
+                           <option value="GA">Gabon</option>
+                           <option value="GM">Gambia</option>
+                           <option value="GE">Georgia</option>
+                           <option value="DE">Germany</option>
+                           <option value="GH">Ghana</option>
+                           <option value="GI">Gibraltar</option>
+                           <option value="GR">Greece</option>
+                           <option value="GL">Greenland</option>
+                           <option value="GD">Grenada</option>
+                           <option value="GP">Guadeloupe</option>
+                           <option value="GT">Guatemala</option>
+                           <option value="GG">Guernsey</option>
+                           <option value="GN">Guinea</option>
+                           <option value="GW">Guinea-Bissau</option>
+                           <option value="GY">Guyana</option>
+                           <option value="HT">Haiti</option>
+                           <option value="HM">Heard & McDonald Islands</option>
+                           <option value="HN">Honduras</option>
+                           <option value="HK">Hong Kong SAR</option>
+                           <option value="HU">Hungary</option>
+                           <option value="IS">Iceland</option>
+                           <option value="IN">India</option>
+                           <option value="ID">Indonesia</option>
+                           <option value="IR">Iran</option>
+                           <option value="IQ">Iraq</option>
+                           <option value="IE">Ireland</option>
+                           <option value="IM">Isle of Man</option>
+                           <option value="IL">Israel</option>
+                           <option value="IT">Italy</option>
+                           <option value="JM">Jamaica</option>
+                           <option value="JP">Japan</option>
+                           <option value="JE">Jersey</option>
+                           <option value="JO">Jordan</option>
+                           <option value="KZ">Kazakhstan</option>
+                           <option value="KE">Kenya</option>
+                           <option value="KI">Kiribati</option>
+                           <option value="XK">Kosovo</option>
+                           <option value="KW">Kuwait</option>
+                           <option value="KG">Kyrgyzstan</option>
+                           <option value="LA">Laos</option>
+                           <option value="LV">Latvia</option>
+                           <option value="LB">Lebanon</option>
+                           <option value="LS">Lesotho</option>
+                           <option value="LR">Liberia</option>
+                           <option value="LY">Libya</option>
+                           <option value="LI">Liechtenstein</option>
+                           <option value="LT">Lithuania</option>
+                           <option value="LU">Luxembourg</option>
+                           <option value="MO">Macao SAR</option>
+                           <option value="MG">Madagascar</option>
+                           <option value="MW">Malawi</option>
+                           <option value="MY">Malaysia</option>
+                           <option value="MV">Maldives</option>
+                           <option value="ML">Mali</option>
+                           <option value="MT">Malta</option>
+                           <option value="MQ">Martinique</option>
+                           <option value="MR">Mauritania</option>
+                           <option value="MU">Mauritius</option>
+                           <option value="YT">Mayotte</option>
+                           <option value="MX">Mexico</option>
+                           <option value="MD">Moldova</option>
+                           <option value="MC">Monaco</option>
+                           <option value="MN">Mongolia</option>
+                           <option value="ME">Montenegro</option>
+                           <option value="MS">Montserrat</option>
+                           <option value="MA">Morocco</option>
+                           <option value="MZ">Mozambique</option>
+                           <option value="MM">Myanmar (Burma)</option>
+                           <option value="NA">Namibia</option>
+                           <option value="NR">Nauru</option>
+                           <option value="NP">Nepal</option>
+                           <option value="NL">Netherlands</option>
+                           <option value="AN">Netherlands Antilles</option>
+                           <option value="NC">New Caledonia</option>
+                           <option value="NZ">New Zealand</option>
+                           <option value="NI">Nicaragua</option>
+                           <option value="NE">Niger</option>
+                           <option value="NG">Nigeria</option>
+                           <option value="NU">Niue</option>
+                           <option value="NF">Norfolk Island</option>
+                           <option value="KP">North Korea</option>
+                           <option value="MK">North Macedonia</option>
+                           <option value="NO">Norway</option>
+                           <option value="OM">Oman</option>
+                           <option value="PK">Pakistan</option>
+                           <option value="PS">Palestinian Territories</option>
+                           <option value="PA">Panama</option>
+                           <option value="PG">Papua New Guinea</option>
+                           <option value="PY">Paraguay</option>
+                           <option value="PE">Peru</option>
+                           <option value="PH">Philippines</option>
+                           <option value="PN">Pitcairn Islands</option>
+                           <option value="PL">Poland</option>
+                           <option value="PT">Portugal</option>
+                           <option value="QA">Qatar</option>
+                           <option value="RE">Réunion</option>
+                           <option value="RO">Romania</option>
+                           <option value="RU">Russia</option>
+                           <option value="RW">Rwanda</option>
+                           <option value="WS">Samoa</option>
+                           <option value="SM">San Marino</option>
+                           <option value="ST">São Tomé & Príncipe</option>
+                           <option value="SA">Saudi Arabia</option>
+                           <option value="SN">Senegal</option>
+                           <option value="RS">Serbia</option>
+                           <option value="SC">Seychelles</option>
+                           <option value="SL">Sierra Leone</option>
+                           <option value="SG">Singapore</option>
+                           <option value="SX">Sint Maarten</option>
+                           <option value="SK">Slovakia</option>
+                           <option value="SI">Slovenia</option>
+                           <option value="SB">Solomon Islands</option>
+                           <option value="SO">Somalia</option>
+                           <option value="ZA">South Africa</option>
+                           <option value="GS">South Georgia & South Sandwich Islands</option>
+                           <option value="KR">South Korea</option>
+                           <option value="SS">South Sudan</option>
+                           <option value="ES">Spain</option>
+                           <option value="LK">Sri Lanka</option>
+                           <option value="BL">St. Barthélemy</option>
+                           <option value="SH">St. Helena</option>
+                           <option value="KN">St. Kitts & Nevis</option>
+                           <option value="LC">St. Lucia</option>
+                           <option value="MF">St. Martin</option>
+                           <option value="PM">St. Pierre & Miquelon</option>
+                           <option value="VC">St. Vincent & Grenadines</option>
+                           <option value="SD">Sudan</option>
+                           <option value="SR">Suriname</option>
+                           <option value="SJ">Svalbard & Jan Mayen</option>
+                           <option value="SE">Sweden</option>
+                           <option value="CH">Switzerland</option>
+                           <option value="SY">Syria</option>
+                           <option value="TW">Taiwan</option>
+                           <option value="TJ">Tajikistan</option>
+                           <option value="TZ">Tanzania</option>
+                           <option value="TH">Thailand</option>
+                           <option value="TL">Timor-Leste</option>
+                           <option value="TG">Togo</option>
+                           <option value="TK">Tokelau</option>
+                           <option value="TO">Tonga</option>
+                           <option value="TT">Trinidad & Tobago</option>
+                           <option value="TA">Tristan da Cunha</option>
+                           <option value="TN">Tunisia</option>
+                           <option value="TR">Türkiye</option>
+                           <option value="TM">Turkmenistan</option>
+                           <option value="TC">Turks & Caicos Islands</option>
+                           <option value="TV">Tuvalu</option>
+                           <option value="UM">U.S. Outlying Islands</option>
+                           <option value="UG">Uganda</option>
+                           <option value="UA">Ukraine</option>
+                           <option value="AE">United Arab Emirates</option>
+                           <option value="GB">United Kingdom</option>
+                           <option value="US" selected="">United States</option>
+                           <option value="UY">Uruguay</option>
+                           <option value="UZ">Uzbekistan</option>
+                           <option value="VU">Vanuatu</option>
+                           <option value="VA">Vatican City</option>
+                           <option value="VE">Venezuela</option>
+                           <option value="VN">Vietnam</option>
+                           <option value="WF">Wallis & Futuna</option>
+                           <option value="EH">Western Sahara</option>
+                           <option value="YE">Yemen</option>
+                           <option value="ZM">Zambia</option>
+                           <option value="ZW">Zimbabwe</option>
+                        </select>
+                        <div class="select-chevron"></div>
+                     </div>
+
+                     <div class="form-control">
+                        <input name="address" id="address" type="text" placeholder="Address" tabindex="12" maxlength="60" value="" onkeyup="checkFieldBack(this);">
+                     </div>
+
+                     <div class="form-control" id="state-wrap">
+                        <select name="state" id="state" onchange="checkFieldBack(this);" tabindex="13">
+                           <option value="">Select your state...</option>
+                           <optgroup label="US States">
+                              <option value="AL">Alabama</option>
+                              <option value="AK">Alaska</option>
+                              <option value="AZ">Arizona</option>
+                              <option value="AR">Arkansas</option>
+                              <option value="CA">California</option>
+                              <option value="CO">Colorado</option>
+                              <option value="CT">Connecticut</option>
+                              <option value="DE">Delaware</option>
+                              <option value="FL">Florida</option>
+                              <option value="GA">Georgia</option>
+                              <option value="GU">Guam</option>
+                              <option value="HI">Hawaii</option>
+                              <option value="ID">Idaho</option>
+                              <option value="IL">Illinois</option>
+                              <option value="IN">Indiana</option>
+                              <option value="IA">Iowa</option>
+                              <option value="KS">Kansas</option>
+                              <option value="KY">Kentucky</option>
+                              <option value="LA">Louisiana</option>
+                              <option value="ME">Maine</option>
+                              <option value="MP">Mariana Islands</option>
+                              <option value="MPI">Mariana Islands (Pacific)</option>
+                              <option value="MD">Maryland</option>
+                              <option value="MA">Massachusetts</option>
+                              <option value="MI">Michigan</option>
+                              <option value="MN">Minnesota</option>
+                              <option value="MS">Mississippi</option>
+                              <option value="MO">Missouri</option>
+                              <option value="MT">Montana</option>
+                              <option value="NE">Nebraska</option>
+                              <option value="NV">Nevada</option>
+                              <option value="NH">New Hampshire</option>
+                              <option value="NJ">New Jersey</option>
+                              <option value="NM">New Mexico</option>
+                              <option value="NY">New York</option>
+                              <option value="NC">North Carolina</option>
+                              <option value="ND">North Dakota</option>
+                              <option value="OH">Ohio</option>
+                              <option value="OK">Oklahoma</option>
+                              <option value="OR">Oregon</option>
+                              <option value="PA">Pennsylvania</option>
+                              <option value="PR">Puerto Rico</option>
+                              <option value="RI">Rhode Island</option>
+                              <option value="SC">South Carolina</option>
+                              <option value="SD">South Dakota</option>
+                              <option value="TN">Tennessee</option>
+                              <option value="TX">Texas</option>
+                              <option value="UT">Utah</option>
+                              <option value="VT">Vermont</option>
+                              <option value="USVI">U.S. Virgin Islands</option>
+                              <option value="VA">Virginia</option>
+                              <option value="WA">Washington</option>
+                              <option value="DC">Washington, D.C.</option>
+                              <option value="WV">West Virginia</option>
+                              <option value="WI">Wisconsin</option>
+                              <option value="WY">Wyoming</option>
+                           </optgroup>
+                           <option label="N/A" value="N/A">Other</option>
+                        </select>
+                        <select style="display: none;" name="hidden-state" id="hidden-state" disabled="disabled" tabindex="-1">
+                           <optgroup label="US States">
+                              <option value="AL">Alabama</option>
+                              <option value="AK">Alaska</option>
+                              <option value="AZ">Arizona</option>
+                              <option value="AR">Arkansas</option>
+                              <option value="CA">California</option>
+                              <option value="CO">Colorado</option>
+                              <option value="CT">Connecticut</option>
+                              <option value="DE">Delaware</option>
+                              <option value="FL">Florida</option>
+                              <option value="GA">Georgia</option>
+                              <option value="GU">Guam</option>
+                              <option value="HI">Hawaii</option>
+                              <option value="ID">Idaho</option>
+                              <option value="IL">Illinois</option>
+                              <option value="IN">Indiana</option>
+                              <option value="IA">Iowa</option>
+                              <option value="KS">Kansas</option>
+                              <option value="KY">Kentucky</option>
+                              <option value="LA">Louisiana</option>
+                              <option value="ME">Maine</option>
+                              <option value="MP">Mariana Islands</option>
+                              <option value="MPI">Mariana Islands (Pacific)</option>
+                              <option value="MD">Maryland</option>
+                              <option value="MA">Massachusetts</option>
+                              <option value="MI">Michigan</option>
+                              <option value="MN">Minnesota</option>
+                              <option value="MS">Mississippi</option>
+                              <option value="MO">Missouri</option>
+                              <option value="MT">Montana</option>
+                              <option value="NE">Nebraska</option>
+                              <option value="NV">Nevada</option>
+                              <option value="NH">New Hampshire</option>
+                              <option value="NJ">New Jersey</option>
+                              <option value="NM">New Mexico</option>
+                              <option value="NY">New York</option>
+                              <option value="NC">North Carolina</option>
+                              <option value="ND">North Dakota</option>
+                              <option value="OH">Ohio</option>
+                              <option value="OK">Oklahoma</option>
+                              <option value="OR">Oregon</option>
+                              <option value="PA">Pennsylvania</option>
+                              <option value="PR">Puerto Rico</option>
+                              <option value="RI">Rhode Island</option>
+                              <option value="SC">South Carolina</option>
+                              <option value="SD">South Dakota</option>
+                              <option value="TN">Tennessee</option>
+                              <option value="TX">Texas</option>
+                              <option value="UT">Utah</option>
+                              <option value="VT">Vermont</option>
+                              <option value="USVI">U.S. Virgin Islands</option>
+                              <option value="VA">Virginia</option>
+                              <option value="WA">Washington</option>
+                              <option value="DC">Washington, D.C.</option>
+                              <option value="WV">West Virginia</option>
+                              <option value="WI">Wisconsin</option>
+                              <option value="WY">Wyoming</option>
+                           </optgroup>
+                           <optgroup label="Canadian Provinces">
+                              <option value="AB">Alberta</option>
+                              <option value="BC">British Columbia</option>
+                              <option value="MB">Manitoba</option>
+                              <option value="NB">New Brunswick</option>
+                              <option value="NF">Newfoundland</option>
+                              <option value="NT">Northwest Territories</option>
+                              <option value="NS">Nova Scotia</option>
+                              <option value="NVT">Nunavut</option>
+                              <option value="ON">Ontario</option>
+                              <option value="PE">Prince Edward Island</option>
+                              <option value="QC">Quebec</option>
+                              <option value="SK">Saskatchewan</option>
+                              <option value="YK">Yukon</option>
+                           </optgroup>
+                           <optgroup label="Australian Provinces">
+                              <option value="-AU-NSW">New South Wales</option>
+                              <option value="-AU-QLD">Queensland</option>
+                              <option value="-AU-SA">South Australia</option>
+                              <option value="-AU-TAS">Tasmania</option>
+                              <option value="-AU-VIC">Victoria</option>
+                              <option value="-AU-WA">Western Australia</option>
+                              <option value="-AU-ACT">Australian Capital Territory</option>
+                              <option value="-AU-NT">Northern Territory</option>
+                           </optgroup>
+                           <option label="N/A" value="N/A">Other</option>
+                        </select>
+                        <div class="select-chevron"></div>
+                     </div>
+
+                     <div class="city-zip-wrap">
+                        <input name="city" id="city" type="text" maxlength="40" placeholder="City" tabindex="14" value="" onkeyup="checkFieldBack(this);">
+                        <input type="text" name="zip" id="zip" class="" placeholder="ZIP" tabindex="15" maxlength="20" onkeyup="checkFieldBack(this);">
+                     </div>
+                     <p id="billing-error-text" class="error-text">This field is required.</p>
+                  </div>
+                  <div id="card-types" style="display: none;">
+                     <input name="cctype" type="radio" value="V" class="lft-field">
+                     <input name="cctype" type="radio" value="M" class="lft-field">
+                     <input name="cctype" type="radio" value="A" class="lft-field">
+                     <input name="cctype" type="radio" value="D" class="lft-field">
+                     <input name="cctype" type="radio" value="DI" class="lft-field">
+                     <input name="cctype" type="radio" value="J" class="lft-field">
+							                  </div>
+
+                  <div class="small-text-wrap checkbox-wrap">
+                     <input class="custom-checkbox" id="terms-checkbox" type="checkbox" tabindex="16">
+                     <label for="terms-checkbox">
+                        I have read and agree to the DFY Dave's Terms & Conditions.
+                     </label>
+                  </div>
+
+                  
+                  
+                  <button id="submit-button" class="animate-button" type="submit" tabindex="17">
+                     <span class="payment-loader"></span>
+                     <span class="button-text">Pay</span>
+                  </button>
+
+                  <div class="small-text-wrap light-box">
+                     <div class="secured"></div>
+                     <p>Payments are secure and encrypted</p>
+                  </div>
+
+                  <div class="desktop-text-wrap">
+                     <div class="small-text-wrap">
+    <p class="small-text-p">
+        <span>Powered by <a tabindex="18" href="https://soldi.ai" target="_blank">Soldi</a></span> 
+        <span class="small-text-divider">�|�</span>
+        <a tabindex="19" href="https://dfy-dave.com/privacy-policy" target="_blank">Privacy</a>
+        <span class="small-text-divider">•</span>
+        <a tabindex="20" href="https://dfy-dave.com/refund-policy" target="_blank">Refund</a>
+        <span class="small-text-divider">•</span>
+        <a tabindex="21" href="https://dfy-dave.com/terms-and-conditions" target="_blank">Terms�&�Conditions</a>
+    </p>
+</div>                  </div>
+               </div> -->
+                    <iframe src="https://youtube-productions.notion.site/ebd/22ca8d3562a581d6a3dbffacac6d9a34" width="100%"
+                        height="100%" frameborder="0" allowfullscreen />
+                </div>
+            </div>
+        </form>
+
+    </section>
+
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () { function e() { if (null == document.getElementById("service")) return; let e = document.getElementById("service"), t = e.options[e.selectedIndex]; null != document.getElementById("main_heading") && (document.getElementById("main_heading").textContent = t.textContent) } checkService(document.getElementById("service")), document.getElementById("coupon_code").value && checkCoupon(), e(), null !== document.getElementById("service") && document.getElementById("service").addEventListener("change", function t() { e() }) });
+
+        const optionUS = document.querySelector('#hidden-state optgroup[label="US States"]'),
+            optionCA = document.querySelector('#hidden-state optgroup[label="Canadian Provinces"]'),
+            optionAU = document.querySelector('#hidden-state optgroup[label="Australian Provinces"]'),
+            optionNA = document.querySelector('#hidden-state option[label="N/A"]'),
+            stateWrap = document.getElementById("state-wrap"),
+            stateSelect = document.getElementById("state");
+
+        function moveOptGroup(element) {
+
+            let stateOptions = document.querySelectorAll('#state optgroup');
+            stateOptions.forEach(option => {
+                option.remove();
+            });
+            if (stateSelect.querySelector('option[value="N/A"]')) {
+                stateSelect.querySelector('option[value="N/A"]').remove();
+            }
+
+            switch (element) {
+                case "US":
+                    stateSelect.querySelector('option[value=""]').textContent = "Select your state...";
+                    stateSelect.appendChild(optionUS.cloneNode(true));
+                    break;
+                case "CA":
+                    stateSelect.querySelector('option[value=""]').textContent = "Select your province...";
+                    stateSelect.appendChild(optionCA.cloneNode(true));
+                    break;
+                case "AU":
+                    stateSelect.querySelector('option[value=""]').textContent = "Select your province...";
+                    stateSelect.appendChild(optionAU.cloneNode(true));
+                    break;
+                default:
+                    stateSelect.appendChild(optionNA.cloneNode(true));
+                    stateSelect.value = "N/A";
+                    stateWrap.classList.add("disabled");
+                    return;
+                    break;
+            }
+            stateSelect.value = "";
+            stateWrap.classList.remove("disabled");
+
+        }
+        document.addEventListener("DOMContentLoaded", function () { let el = document.getElementById("country"); moveOptGroup(el.value); });
+
+        document.getElementById("country").addEventListener("change", function () {
+            var e = this.value;
+            moveOptGroup(e);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () { var e = document.getElementById("terms-checkbox"), d = document.getElementById("submit-button"); e && d && (d.disabled = !0, d.classList.add("disabled"), e.addEventListener("change", function () { e.checked ? d.classList.remove("disabled") : d.classList.add("disabled"), d.disabled = !e.checked })) });
+
+    </script>
+
+
+</body>
+
+</html>
