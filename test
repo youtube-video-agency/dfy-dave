@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html data-wf-page="case-study-danny" data-wf-site="dfydave" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Danny Maude — YouTube Growth Case Study | YouTube Videos Agency</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="css/dfydave-v3.shared.bce2edb4e.min.css" rel="stylesheet" type="text/css" />
+  <link href="css/dfydave-v3.67ee9b5e48ea885b68356178-912b6cd6c.min.css" rel="stylesheet" type="text/css" />
+  <script defer src="js/form-submission-handler.js"></script>
+  <script defer src="js/tawk.js"></script>
+</head>
+
+<body>
+
+<!-- ---------------- NAVBAR (EXACT FROM YOUR SITE) ---------------- -->
+
+<div data-animation="default" class="navbar w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium"
+  role="banner" data-duration="400">
+  <div class="container_nav">
+    <a href="/" class="brand w-nav-brand">
+      <div class="brand-image w-embed">
+        <!-- logo svg -->
+      </div>
+    </a>
+    <nav role="navigation" class="nav-menu w-nav-menu">
+      <div class="nav-menu-link-wrap">
+        <a href="#services" class="nav-link w-nav-link">Services</a>
+        <a href="#faq" class="nav-link w-nav-link">FAQ</a>
+        <a href="/articles-and-guides.html" class="nav-link w-nav-link">Articles & Guides</a>
+        <a href="/affiliate.html" class="nav-link w-nav-link">Affiliate</a>
+        <a href="/career.html" class="nav-link w-nav-link">Careers </a>
+      </div>
+      <div class="nav-button-wrap">
+        <div class="nav-button is-secondary">
+          <div>Talk To Sales</div>
+        </div>
+        <a href="#services" class="nav-button w-inline-block">
+          <div>Check All Services</div>
+        </a>
+      </div>
+    </nav>
+    <div class="menu-button w-nav-button">
+      <div class="menu-icon"></div>
+    </div>
+  </div>
+  <div class="dfy-sscrollbar"><div id="progress-bar" class="scroll-indicator"></div></div>
+</div>
+
+
+<!-- ---------------- HERO SECTION ---------------- -->
+
+<div class="section is--hero" style="background:#f7f7f7;">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-vertical padding-xxlarge">
+        
+        <div class="w-row">
+          <div class="w-col w-col-6">
+            <h1 class="heading-1">CASE STUDY: How We Scaled <br> Danny Maude from 37K → 1.63M Subscribers</h1>
+            <p class="text-size-large">
+              A complete YouTube growth system transforming a golf instructor into one of YouTube’s biggest golf creators.
+            </p>
+
+            <div class="metrics-row" style="margin-top:28px;">
+              <div class="metric-box">
+                <div class="metric-value">1.63M+</div>
+                <div class="metric-label">Subscribers</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-value">240M+</div>
+                <div class="metric-label">Views</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-value">48</div>
+                <div class="metric-label">Viral Videos</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="w-col w-col-6">
+            <img src="/mnt/data/Danny Maude Image.jpg" alt="Danny Maude" class="hero-image" style="border-radius:12px;">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- AT A GLANCE ---------------- -->
+
+<div class="section">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-vertical padding-xlarge">
+        
+        <h2 class="heading-2">At a Glance</h2>
+
+        <div class="w-row" style="margin-top:40px;">
+          <div class="w-col w-col-3">
+            <div class="metric-card">
+              <div class="metric-value">37K → 1.63M</div>
+              <div class="metric-label">Subscribers</div>
+            </div>
+          </div>
+
+          <div class="w-col w-col-3">
+            <div class="metric-card">
+              <div class="metric-value">25K → 150K+</div>
+              <div class="metric-label">Avg Views / Video</div>
+            </div>
+          </div>
+
+          <div class="w-col w-col-3">
+            <div class="metric-card">
+              <div class="metric-value">48</div>
+              <div class="metric-label">Viral Videos</div>
+            </div>
+          </div>
+
+          <div class="w-col w-col-3">
+            <div class="metric-card">
+              <div class="metric-value">5+ years</div>
+              <div class="metric-label">Partnership</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- CHALLENGE ---------------- -->
+
+<div class="section" style="background:#fafafa;">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-vertical padding-xlarge">
+
+        <div class="w-row">
+          <div class="w-col w-col-6">
+            <h2 class="heading-2">The Challenge</h2>
+            <p class="section-paragraph">
+              When Danny began working with us, he was already producing world-class golf instruction.
+              But his YouTube growth wasn’t matching his teaching ability.
+            </p>
+            <ul class="feature-list">
+              <li>Inconsistent viewership</li>
+              <li>No scalable viral framework</li>
+              <li>Thumbnails/titles not optimized</li>
+              <li>SEO & suggested browsing not maximized</li>
+              <li>Content themes not strategically structured</li>
+            </ul>
+          </div>
+
+          <div class="w-col w-col-6">
+            <img src="/mnt/data/Danny Maude Image 3.jpg" alt="Danny Teaching" style="border-radius:12px;">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- STRATEGY ---------------- -->
+
+<div class="section">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-vertical padding-xlarge">
+
+        <h2 class="heading-2">Our Strategic Growth System</h2>
+        <p class="text-size-large">A long-term YouTube operating system built around Danny’s teaching style.</p>
+
+        <div class="feature-grid" style="margin-top:30px;">
+          <div class="feature-block">
+            <h3 class="heading-4">1. Content Strategy Optimization</h3>
+            <p>We defined evergreen content pillars and built high-retention video frameworks.</p>
+          </div>
+          <div class="feature-block">
+            <h3 class="heading-4">2. SEO + Suggested System</h3>
+            <p>We engineered titles, topics, and thumbnails to dominate YouTube suggestion networks.</p>
+          </div>
+          <div class="feature-block">
+            <h3 class="heading-4">3. Audience Development</h3>
+            <p>Built community retention loops and clear creator positioning.</p>
+          </div>
+          <div class="feature-block">
+            <h3 class="heading-4">4. Data-Driven Feedback Cycles</h3>
+            <p>Weekly analytics reviews and constant optimization.</p>
+          </div>
+        </div>
+
+        <img src="/mnt/data/A_funnel_infographic_infographic_illustrates_Danny.png" class="full-image" style="margin-top:40px; border-radius:12px;">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- EXECUTION ---------------- -->
+
+<div class="section" style="background:#fafafa;">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-vertical padding-xlarge">
+
+        <h2 class="heading-2">Execution & Optimization</h2>
+        <p class="section-paragraph">
+          Once the strategy was ready, we executed a tight publishing & optimization system:
+        </p>
+
+        <ul class="feature-list">
+          <li>Weekly upload structure</li>
+          <li>CTR improvement loops</li>
+          <li>Retention-first editing</li>
+          <li>Topic-gap discovery</li>
+          <li>Format duplication for successful patterns</li>
+        </ul>
+
+        <img src="/mnt/data/A_line_graph_chart_in_the_requested_detailed,_prof.png" class="full-image" style="margin-top:40px; border-radius:12px;">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- RESULTS ---------------- -->
+
+<div class="section">
+  <div class="padding-global">
+    <div class="container-large">
+      <div class="padding-vertical padding-xlarge">
+
+        <h2 class="heading-2">Results & Channel Transformation</h2>
+
+        <p class="text-size-large" style="margin-bottom:30px;">
+          Danny’s channel didn’t grow by luck — it grew using a compounding system.
+        </p>
+
+        <img src="/mnt/data/A_YouTube_analytics_report_displays_Danny_Maude's_.png" class="full-image" style="border-radius:12px; margin-bottom:40px;">
+
+        <img src="/mnt/data/A_pair_of_infographics_visualizing_Danny_Maude's_Y.png" class="full-image" style="border-radius:12px;">
+
+        <img src="/mnt/data/A_case_study_infographic_visualizes_the_timeline_o.png" class="full-image" style="border-radius:12px; margin-top:40px;">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- TESTIMONIAL ---------------- -->
+
+<div class="section" style="background:#fafafa;">
+  <div class="padding-global">
+    <div class="container-medium">
+      <div class="padding-vertical padding-xlarge">
+
+        <h2 class="heading-2" style="text-align:center;">Client Testimonial</h2>
+
+        <div class="testimonial-block" style="text-align:center; margin-top:30px;">
+          <img src="/mnt/data/Danny Maude Image.jpg" class="testimonial-image" style="width:120px; height:120px; border-radius:100%;">
+          <p class="text-size-large" style="margin-top:20px;">
+            “They didn’t just grow my channel — they built a system for me.  
+            Nothing here was luck. The growth was predictable and grounded in strategy.  
+            Working with them changed everything.”
+          </p>
+          <strong>- Danny Maude</strong>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- CTA ---------------- -->
+
+<div class="cta-section">
+  <div class="padding-global">
+    <div class="container-small">
+      
+      <div class="padding-vertical padding-xxlarge">
+        <h2 class="heading-2" style="text-align:center;">Want Results Like This?</h2>
+        <p class="text-size-large" style="text-align:center;">
+          Get a free channel audit and discover what YouTube growth would look like for your brand.
+        </p>
+
+        <div style="text-align:center; margin-top:24px;">
+          <a href="#" class="button-primary w-button">Book a Free Audit</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ---------------- FOOTER (EXACT FROM YOUR SITE) ---------------- -->
+
+<div class="footer">
+  <div class="container_nav">
+    <a href="/" class="brand w-nav-brand">
+      <div class="brand-image w-embed">
+        <!-- logo svg -->
+      </div>
+    </a>
+    <p class="footer-main-text">
+      Save years of expertise as well as money spent on experimenting<br>
+      and instead, have your online business entirely built by our experts.
+    </p>
+
+    <div class="footer_menu">
+      <div class="footer-menu_column">
+        <h2 class="footer-column_title">Services</h2>
+        <div class="footer-column_link-wrap">
+          <a href="/monetization.html" class="footer-link">YouTube Monetization</a>
+          <a href="/tiktok-monetization.html" class="footer-link">TikTok Monetization</a>
+          <a href="/custom-youtube-videos.html" class="footer-link">DFY YouTube Videos</a>
+        </div>
+      </div>
+
+      <div class="footer-menu_column">
+        <h2 class="footer-column_title">General</h2>
+        <div class="footer-column_link-wrap">
+          <a href="/articles-and-guides.html" class="footer-link">Articles & Guides</a>
+          <a href="/career.html" class="footer-link">Careers</a>
+        </div>
+      </div>
+
+      <div class="footer-menu_column">
+        <h2 class="footer-column_title">Access</h2>
+        <div class="footer-column_link-wrap">
+          <a href="/help-center.html" class="footer-link">Help Center</a>
+          <a href="/terms-and-conditions.html" class="footer-link">Terms & Conditions</a>
+          <a href="/privacy-policy.html" class="footer-link">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="copyright-row">
+      <p class="copyright-text">
+        © 2025 DFY Dave & Dave Nick. All Rights Reserved.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
